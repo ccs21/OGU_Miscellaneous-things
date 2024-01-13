@@ -28,6 +28,22 @@ https://search.shopping.naver.com/book/catalog/32473645876
 TOOLS->파일매니저 를 이용해서 내부 메모리의 해당 폴더로 옮기면 됩니다.
 
 
+# 한글 게임 리스트 적용방법
+
+한글 게임 리스트.zip의 압축을 풀면
+
+images(폴더)
+
+videos(폴더)
+
+gamelist.xml
+
+이 나옵니다.
+
+이 세 항목을 모두 SD카드의 아케이드(또는 마메 등등 오락실 게임 롬을 넣어둔 곳) 폴더에 넣어주시면 됩니다.
+
+
+
 # 테마 미리보기
 
 ### Sexy-Theme
