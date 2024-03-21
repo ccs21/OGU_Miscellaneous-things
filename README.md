@@ -54,7 +54,7 @@ gamelist.xml
 # 테마 미리보기
 
 ### Sexy-Theme
-![](https://github.com/ccs21/theme/blob/main/%EB%AF%B8%EB%A6%AC%EB%B3%B4%EA%B8%B0/SEXY_Theme.jpg)
+![](https://github.com/ccs21/OGU_Miscellaneous-things/blob/main/JELOS%20%ED%85%8C%EB%A7%88/%EB%AF%B8%EB%A6%AC%EB%B3%B4%EA%B8%B0/SEXY_Theme.jpg)
 
 ### NSFW-Theme
-![](https://github.com/ccs21/theme/blob/main/%EB%AF%B8%EB%A6%AC%EB%B3%B4%EA%B8%B0/NSFW_Theme.jpg)
+![](https://github.com/ccs21/OGU_Miscellaneous-things/blob/main/JELOS%20%ED%85%8C%EB%A7%88/%EB%AF%B8%EB%A6%AC%EB%B3%B4%EA%B8%B0/NSFW_Theme.jpg)
