@@ -1,3 +1,76 @@
+@echo off
+cls
+goto :waitst
+
+:waitst
+echo.
+echo.
+echo 관리자 권한을 확인 합니다.
+echo.
+echo.
+timeout 5 >nul
+goto :CheckUAC
+
+:CheckUAC
+>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+if '%errorlevel%' NEQ '0' (
+goto :UACAccess
+) else ( 
+goto :Done 
+)
+:UACAccess
+cls
+echo.
+echo.
+echo 관리자 권한이 없습니다.
+echo.
+echo 잠시 후 나타나는 창에서 "예"를 눌러주세요.
+echo.
+echo 관지라 권한을 얻기 위해 프로그램이 다시 실행 됩니다.
+echo.
+echo.
+timeout 5 >nul
+::pause >nul
+echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
+echo UAC.ShellExecute "cmd", "/c """"%~f0"" """ + Wscript.Arguments.Item(0) + """ ""%user%""""", "%CD%", "runas", 1 >> "%temp%\getadmin.vbs"
+"%temp%\getadmin.vbs" "%file%"
+del "%temp%\getadmin.vbs"
+exit /b
+
+:Done
+cls
+echo.
+echo.
+echo 관리자 권한이 확인 되었습니다.
+echo.
+echo 잠시 후 다음 단계로 진행 됩니다.
+echo.
+echo.
+timeout 5 >nul
+cls
+set a="%~dp0"
+cd %a%
+echo.
+echo.
+echo 현재 작업중인 폴더의 경로를 확인 하세요.
+echo.
+echo.
+echo 작업 경로 : %a%
+echo.
+echo.
+echo 경로가 맞다면 아무키나 눌러서 계속 진행 하세요.
+echo.
+echo 경로가 다르다면 프로그램을 닫고 제작자에게 문의하세요.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+
+pause
+
 echo Red 
 mklink 32e647d92764f564-442abf5932ee9beb-00006254.png 0000000000000000-31266fe05dd981e1-00006254.png
 mklink 32e647d92764f564-31266fe05dd981e1-00006254.png 0000000000000000-31266fe05dd981e1-00006254.png
@@ -101,8 +174,6 @@ mklink bb9bfdec4665324d-442abf5932ee9beb-00006254.png 0000000000000000-31266fe05
 mklink bb9bfdec4665324d-31266fe05dd981e1-00006254.png 0000000000000000-31266fe05dd981e1-00006254.png
 mklink 562ae5273c66e53e-442abf5932ee9beb-00006254.png 0000000000000000-31266fe05dd981e1-00006254.png
 mklink 562ae5273c66e53e-31266fe05dd981e1-00006254.png 0000000000000000-31266fe05dd981e1-00006254.png
-mklink a1183c9625d328c-442abf5932ee9beb-00006254.png 0000000000000000-31266fe05dd981e1-00006254.png
-mklink a1183c9625d328c-31266fe05dd981e1-00006254.png 0000000000000000-31266fe05dd981e1-00006254.png
 
 
 
@@ -181,8 +252,6 @@ mklink e52fb2fbdea1c92-1a9af6822fce8ffc-00006254.png 0000000000000000-1a9af6822f
 mklink 2b842eb402659bec-1a9af6822fce8ffc-00006254.png 0000000000000000-1a9af6822fce8ffc-00006254.png
 mklink bb9bfdec4665324d-1a9af6822fce8ffc-00006254.png 0000000000000000-1a9af6822fce8ffc-00006254.png
 mklink 562ae5273c66e53e-1a9af6822fce8ffc-00006254.png 0000000000000000-1a9af6822fce8ffc-00006254.png
-mklink a1183c9625d328c-1a9af6822fce8ffc-00006254.png 0000000000000000-1a9af6822fce8ffc-00006254.png
-
 
 
 
@@ -311,9 +380,7 @@ mklink bb9bfdec4665324d-e2e33d2f6dc8a510-00006254.png 0000000000000000-92d443861
 mklink 562ae5273c66e53e-43e709432b18a87-00006254.png 0000000000000000-92d443861660cf84-00006254.png
 mklink 562ae5273c66e53e-92d443861660cf84-00006254.png 0000000000000000-92d443861660cf84-00006254.png
 mklink 562ae5273c66e53e-e2e33d2f6dc8a510-00006254.png 0000000000000000-92d443861660cf84-00006254.png
-mklink a1183c9625d328c-43e709432b18a87-00006254.png 0000000000000000-92d443861660cf84-00006254.png
-mklink a1183c9625d328c-92d443861660cf84-00006254.png 0000000000000000-92d443861660cf84-00006254.png
-mklink a1183c9625d328c-e2e33d2f6dc8a510-00006254.png 0000000000000000-92d443861660cf84-00006254.png
+
 
 
   
@@ -393,7 +460,7 @@ mklink 2b842eb402659bec-c4349f3c6b4c49fc-00006254.png 0000000000000000-c4349f3c6
 mklink 160c506fc7232d12-c4349f3c6b4c49fc-00006254.png 0000000000000000-c4349f3c6b4c49fc-00006254.png
 mklink bb9bfdec4665324d-c4349f3c6b4c49fc-00006254.png 0000000000000000-c4349f3c6b4c49fc-00006254.png
 mklink 562ae5273c66e53e-c4349f3c6b4c49fc-00006254.png 0000000000000000-c4349f3c6b4c49fc-00006254.png
-mklink a1183c9625d328c-c4349f3c6b4c49fc-00006254.png 0000000000000000-c4349f3c6b4c49fc-00006254.png
+
 
 
 
@@ -476,9 +543,16 @@ mklink e52fb2fbdea1c92-ec446c336855d255-00006254.png 0000000000000000-ec446c3368
 mklink 2b842eb402659bec-ec446c336855d255-00006254.png 0000000000000000-ec446c336855d255-00006254.png
 mklink bb9bfdec4665324d-ec446c336855d255-00006254.png 0000000000000000-ec446c336855d255-00006254.png
 mklink 562ae5273c66e53e-ec446c336855d255-00006254.png 0000000000000000-ec446c336855d255-00006254.png
-mklink a1183c9625d328c-ec446c336855d255-00006254.png 0000000000000000-ec446c336855d255-00006254.png
 
+cls
+echo.
+echo.
+echo 작업이 완료되었습니다.
+echo.
+echo.
 
+pause
+exit
 
 
 
